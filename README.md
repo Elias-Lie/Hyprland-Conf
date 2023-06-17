@@ -1,1 +1,1 @@
-# Hyrpland-Conf
+# Hyprland-Conf
