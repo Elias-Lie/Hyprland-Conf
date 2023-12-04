@@ -1,66 +1,31 @@
 * {
-    border: none;
-    font-family: "SF Pro", "fontawesome";
-    font-size: 15px;
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 16px;
     color: #ffffff;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
 }
 
-window#waybar {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 7px;
+#workspaces button {
+    box-shadow: none;
 }
 
-tooltip {
-    background: black;
-    border-style: solid;
-    border-color: black;
-}
-tooltip label {
-    font-size: 20px;
-}
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.4);
-    border-color: rgba(0, 0, 0, 0.4);    
+    background: rgba(0, 0, 0, 0.2)
 }
 
 
 #workspaces button.active {
-    text-shadow: white 1px 0 3px;
+    text-shadow: white 2px 1 6px;
 }
 
 #custom-linux {
     margin-left: 15px;
-    margin-right: 10px;
-    font-size: 19px;
-}
-
-#bluetooth {
-    margin-right: 15px;
-    font-size: 20px;
-    font-size: 20px;
-}
-
-#network {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-#pulseaudio {
-    margin-right: 15px;
-    font-size: 19px;
-}
-
-#battery {
-    margin-right: 15px;
-    font-size: 24px;
-}
-#battery.charging {
-    margin-right: 15px;
-    font-size: 19px;
+    margin-right: 20px;
 }
 
 #clock {
     margin-right: 15px;
-    font-size: 20px;
 }

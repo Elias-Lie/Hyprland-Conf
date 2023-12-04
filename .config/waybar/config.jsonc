@@ -7,129 +7,74 @@
     "gtk-layer-shell": true,
     "spacing": 0,
     "margin-top": 5,
-    "margin-left": 10,
-    "margin-right": 10,
+    "margin-left": 11,
+    "margin-right": 11,
+    "margin-bottom": -8,
     "modules-left": ["custom/linux", "wlr/workspaces"],
-    "modules-right": ["bluetooth","pulseaudio","network","battery","clock"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "custom/sep", "network", "custom/sep", "clock","tray"],
     
-    "hyprland/window": {
-        "format": "{}"
-    },
-
     "custom/linux": {
         "tooltip": false,
-        "format": "",
-        "on-click": "~/.config/hypr/scripts/changeWallpaper",
-	"on-click-right": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
+        "format": "󰣇",
+        "on-click": "",
+	    "on-click-right": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
 
     "wlr/workspaces": {
         "format": "{icon}",
-        "disable-scroll": true,
-        "all-outputs": true,
-        "sort-by-number": true,
-        "on-click": "activate",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-	        "4": "",
-            //"4": "",
-            "5": "",
+            "1": "1",
+            "2": "2",
+            "3": "3",
+	        "4": "4",
+            "5": "5",
             "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10"
-        }
+            "7": "7"
+        },
+        "on-click": "activate",
+        "disable-scroll": true,
+        "all-outputs": true
     },
     
-    //"tray": {
-    //    "icon-size": 18,
-    //    "spacing": 10
-    //},
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 100
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
 
     "clock": {
         "tooltip": false,
         "format": "{:%H:%M}"
     },
 
-    //"backlight": {
-    //    "device": "intel_backlight",
-    //    "format": "{icon} {percent}%",
-    //    "format-icons": ["", "", ""],
-    //    "on-scroll-up": "brightnessctl set 1%+",
-    //    "on-scroll-down": "brightnessctl set 1%-",
-    //    "min-length": 6
-    //},
-
-    "battery": {
-        "states": {
-            "good": 80,
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon}",
-        "format-charging": "{capacity} ",
-        "format-plugged": "{capacity} ",
-        "format-icons": ["", "", "", "", ""],
-	"tooltip-format": "Percentage: {capacity}%\n{timeTo}" 
-    }, 
-
-    "pulseaudio": {
-        "format": "{icon}",
-	"format-bluetooth": "",
-        "format-muted": "",
-	"tooltip-format": "{volume}%",
-        "on-click-right": "pavucontrol",
-        "on-click": "pamixer -t",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        }
-    },
-
-    //"pulseaudio#microphone": {
-    //    "format": "{format_source}",
-    //    "format-source": " {volume}%",
-    //    "format-source-muted": " Muted",
-    //    "on-click": "pamixer --default-source -t",
-    //},
-    
-    "temperature": {
-        "interval": 10,
-        "thermal-zone": 0,
-        "critical-threshold": 75,
-        "format": "{icon}",
-        "format-critical": "{temperatureC}°C ",
-        "format-icons": ["", "", "", "", ""]
-    },
-
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " ",
-        "format-ethernet": "",
-        "tooltip-format": "{essid} {signalStrength}%\nRouter: {gwaddr}",
-	"tooltip-format-ethernet": "{ipaddr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠"
+        "interval": 1,
+        "tooltip": false,
+        "format": " {bandwidthDownBits}  {bandwidthUpBits}",
+        "format-disconnected": "No Internet 󰤮"
     },
 
-    "bluetooth": {
-	"format": " {status}",
-	"format-off": "",
-	"format-disabled": "NEW", // an empty format will hide the module
-	"format-on": "",
-	"format-connected": " {num_connections}",
-	"tooltip-format": "{device_alias}",
-	"tooltip-format-connected": " {device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}",
-	"on-click": "blueman-manager",
-	"on-click-right": "~/.config/hypr/scripts/bluetooth"
+    "cpu": {
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
+        "format": " {usage}% "
+    },
+
+    "memory": {
+        "interval": 1,
+        "tooltip": false,
+        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'",
+        "format": "{used}GB"
+    },
+
+    "custom/sep": {
+        "tooltip": false,
+        "format": " | "
     }
 }
